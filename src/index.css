@@ -1,13 +1,108 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+    
+*{ 
+      
+  background-color: white;
+
+  color:rgb(0, 0, 0);
+  font-family: 'Courier New', Courier, monospace;
+  
+  text-align: center;
+  font-size: 20px;
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* .buttonHover {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  font-size: 20px;
+  border: rgb(24, 255, 201) 2px solid;
+  border-radius: 50px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  height: 46px;
+  width: 46px;
 }
+
+.buttonHover:hover {
+  background-color: #f0f0f0;
+  border-radius: 50px;
+  border: white 2px solid;
+  box-shadow: 5px 5px 5px rgb(24, 255, 201, 0.5);
+}
+
+
+#todo{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  
+  font-size: 50px;
+  font-weight: bold;
+  font-family:'Ink Free','papyrus', 'Comic Sans MS', cursive, sans-serif;
+  background-color: #232323;
+  color: #fffccc;
+  margin-bottom: 20px;
+  text-shadow: 5px 5px 8px #ff85f9;
+  
+}
+/* #spacing{
+  
+} 
+ #left{
+  text-align: left;
+  flex:1
+  
+}
+ 
+#thetask{
+  word-wrap: break-word;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+
+input[type="checkbox"]{
+  width: 20px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  
+}
+#addedTask{
+  display: inline;
+  word-wrap: break-word
+  
+}
+
+
+
+input[type="text"] {
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 2px solid #fffccc;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 60%;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+
+
+input[type="text"]:focus {
+  border: white 2px solid;
+  box-shadow: 3px 3px 10px #ff85f9; 
+}
+h5{
+  font-size: 20px;
+  font-weight: bold;
+  color: #848484;
+  margin-top: 50px;
+  font-family: 'Courier New', Courier, monospace;
+}
+ */
