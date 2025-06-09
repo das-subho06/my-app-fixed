@@ -25,17 +25,17 @@
   transition: 0.2s;
   height: 46px;
   width: 46px;
-}
+}*/
 
-.buttonHover:hover {
+/*.buttonHover:hover {
   background-color: #f0f0f0;
   border-radius: 50px;
   border: white 2px solid;
   box-shadow: 5px 5px 5px rgb(24, 255, 201, 0.5);
-}
+}*/
 
 
-#todo{
+/*#todo{
   display: flex;
   flex-direction: column; 
   align-items: center;
@@ -48,10 +48,10 @@
   margin-bottom: 20px;
   text-shadow: 5px 5px 8px #ff85f9;
   
-}
-/* #spacing{
+}*/
+/*#spacing{
   
-} 
+} */
  #left{
   text-align: left;
   flex:1
@@ -66,13 +66,13 @@
 }
 
 
-input[type="checkbox"]{
+/*input[type="checkbox"]{
   width: 20px;
   height: 20px;
   position: relative;
   cursor: pointer;
   
-}
+}*/
 #addedTask{
   display: inline;
   word-wrap: break-word
@@ -81,7 +81,7 @@ input[type="checkbox"]{
 
 
 
-input[type="text"] {
+/*input[type="text"] {
   padding: 12px 16px;
   font-size: 16px;
   border: 2px solid #fffccc;
@@ -90,14 +90,11 @@ input[type="text"] {
   width: 60%;
   outline: none;
   transition: border-color 0.3s ease;
-}
+}*/
 
 
 
-input[type="text"]:focus {
-  border: white 2px solid;
-  box-shadow: 3px 3px 10px #ff85f9; 
-}
+
 h5{
   font-size: 20px;
   font-weight: bold;
@@ -106,3 +103,14 @@ h5{
   font-family: 'Courier New', Courier, monospace;
 }
  */
+#outerbox{
+  margin: 100px;
+}
+#todo{
+  background-color: #FF8DA1;
+  color:aliceblue;
+  padding: 10px 50px 20px;
+  font-family: 'Ink Free','papyrus', 'Comic Sans MS', cursive, sans-serif;
+  font-size: 40px;
+  
+}

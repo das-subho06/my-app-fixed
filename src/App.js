@@ -5,11 +5,21 @@ import { AiFillDelete}  from "react-icons/ai";
 import Modal from './Modal';
 import Swal from 'sweetalert2'
 import Checkbox from '@mui/material/Checkbox';
-import { Typography } from '@mui/material';
+import { TextField, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import { TbBoxMargin } from 'react-icons/tb';
+import AppBar from '@mui/material/AppBar';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import Fab from '@mui/material/Fab';
+
+
+
 
 
 const App = () => {
@@ -31,15 +41,11 @@ const App = () => {
     }
 
     if (task.trim() === "") {
-      Swal.fire("pls enter a task");
+      Swal.fire("Please enter a task");
       return;
     } else if (flag === 0) {
       console.log("good THING POOR");
-      Swal.fire({
-  title: "Oops",
-  text: "Enter a task right now",
-  icon: "warning"
-});
+      Swal.fire("Please enter a proper task.");
       return;
     }
 
@@ -82,10 +88,7 @@ const App = () => {
   ) : (
     finalTask.map((item, index) => (
       <div key={index}>
-        <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-        />
+        
         <div id="thetask">
           <div id="left">
             <Checkbox  defaultChecked />
@@ -93,10 +96,10 @@ const App = () => {
           </div>
           <div> 
 
-            <Button variant="contained" className="buttonHover" onClick={() => editHandler(index)}>
+            <Button variant="contained"  onClick={() => editHandler(index)}>
               <AiFillEdit />
             </Button>{" "}
-            <Button variant="contained" className="buttonHover" onClick={() => editModal(index)}>
+            <Button variant="contained"  onClick={() => editModal(index)}>
               <AiFillDelete/>
             </Button>
 
@@ -126,24 +129,29 @@ const App = () => {
   // JSX return
   return (
     
-    <div>
+    <Paper elevation={24}  id="outerbox" sx={{margin:"60px 100px 100px"}}>
     
-      <Typography variant='h1' id="todo">To-Do List</Typography>
+      <AppBar position="static" id="todo">To-Do List</AppBar>
       <form onSubmit={buttonClick}>
         <Input  
           type="text"
-          size="50"
+          
+          size="60"
           placeholder="Enter task"
           value={task}
-          onChange={(e) => setTask(e.target.value)}
+          
+          
+          onChange={(e) => setTask(e.target.value)
+
+          }
         />{" "}
-        <Button variant="contained" className="buttonHover" type="submit">
-          <AiOutlinePlus />
-        </Button>
+        <Fab size="medium" color="secondary" aria-label="add">
+  <AddIcon />
+</Fab>
       </form>
 
       <div>{rendertask}</div>
-    </div>
+    </Paper>
   );
 };
 
