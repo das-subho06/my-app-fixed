@@ -114,3 +114,9 @@ h5{
   font-size: 40px;
   
 }
+.fab:hover, .MuiFab-root:hover {
+  background-color: #481552 !important; /* Use a visible color */
+                 /* Ensure text/icon is visible */
+}
+
+

@@ -5,7 +5,7 @@ import { AiFillDelete}  from "react-icons/ai";
 import Modal from './Modal';
 import Swal from 'sweetalert2'
 import Checkbox from '@mui/material/Checkbox';
-import { TextField, Typography } from '@mui/material';
+import { DialogContent, DialogContentText, TextField, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Input from '@mui/material/Input';
 import Stack from '@mui/material/Stack';
@@ -17,6 +17,16 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import Fab from '@mui/material/Fab';
+import { createTheme } from '@mui/material/styles';
+import { green,pink } from '@mui/material/colors';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
+import { FiPlus } from "react-icons/fi";
+import { Label, Palette } from '@mui/icons-material';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import Dialog from '@mui/material/Dialog';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 
 
@@ -24,6 +34,12 @@ import Fab from '@mui/material/Fab';
 
 const App = () => {
 
+  
+
+
+
+  const [changetask, setChangetask]=useState("");
+  const [open2, setOpen2]=useState(false);
   const [task, setTask] = useState("");                 // input field
   const [finalTask, setFinalTask] = useState([]);       // list of tasks
   const [modalarr, setModalarr] = useState([]);         // tracks which modal is open
@@ -71,16 +87,41 @@ const App = () => {
     newModals.splice(index, 1);
     setModalarr(newModals);
   };
-
+  // const editagain = (index) => {
+  //   let cpy = [...finalTask];
+  //   const newTask = prompt("Edit Task", finalTask[index].task);
+  // }
   // Edit a task
-  const editHandler = (index) => {
+  const editHandler = (index,changetask) => {
+    
     let cpy = [...finalTask];
-    const newTask = prompt("Edit Task", finalTask[index].task);
-    if (newTask !== null && newTask.trim() !== "") {
-      cpy[index].task = newTask;
+    
+    cpy[index].task = changetask;
       setFinalTask(cpy);
-    }
-  };
+  }
+    return(
+      <Dialog open={open2} key="index">
+        
+        <DialogContentText>
+          Edit the task.
+        </DialogContentText>
+        <TextField value={finalTask[index].task}
+          onChange={(e) => setChangetask(e.target.value)}
+        />
+        <Button onClick={()=>{editHandler(index,changetask)}}  disableRipple>Ok</Button>
+        <Button onClick={()=>}>Cancel</Button>
+        
+      </Dialog>
+    )}
+
+
+
+
+  //   if (newTask !== null && newTask.trim() !== "") {
+  //     cpy[index].task = newTask;
+  //     setFinalTask(cpy);
+  //   }
+  // };
 
   // Render task list
   const rendertask = finalTask.length === 0 ? (
@@ -91,20 +132,24 @@ const App = () => {
         
         <div id="thetask">
           <div id="left">
-            <Checkbox  defaultChecked />
-            <Typography variant='h4' id="addedTask">{index + 1}. {item.task}</Typography>
+            
+            <Typography variant='h7' id="addedTask">{index + 1}. {item.task}</Typography>
           </div>
           <div> 
-
-            <Button variant="contained"  onClick={() => editHandler(index)}>
+            <Checkbox   disableRipple sx={{marginRight:'35px'}}/> 
+            <Button variant="text"  onClick={() => editHandler(index)} disableRipple>
               <AiFillEdit />
             </Button>{" "}
-            <Button variant="contained"  onClick={() => editModal(index)}>
+            {/* <Button variant="text"  onClick={() => editModal(index)}  data-swal-toast-template="#my-template" disableRipple> */}
+            <Button variant="text"  onClick={() => {setOpen2(true)}} disableRipple > 
               <AiFillDelete/>
             </Button>
 
+
+
             {/* Modal per task */}
             <Modal
+            id="dialogopen"
               key={index}
               open={modalarr[index]}
               close={() => {
@@ -135,19 +180,20 @@ const App = () => {
       <form onSubmit={buttonClick}>
         <Input  
           type="text"
-          
+          color='black'
           size="60"
           placeholder="Enter task"
           value={task}
+  
           
           
           onChange={(e) => setTask(e.target.value)
 
           }
         />{" "}
-        <Fab size="medium" color="secondary" aria-label="add">
-  <AddIcon />
-</Fab>
+        <Button size="medium"  aria-label="add" disableRipple disableElevation variant='outlined' color='error' sx={{border:"1px #FF8DA1 solid",borderRadius:"50px", maxWidth:"30px"}}   type='submit'>
+  <FiPlus />
+</Button>
       </form>
 
       <div>{rendertask}</div>
